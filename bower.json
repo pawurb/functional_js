@@ -1,6 +1,7 @@
 {
   "name": "functional_js",
   "dependencies": {
-    "lodash": "~3.10.1"
+    "lodash": "~3.10.1",
+    "ramda": "~0.17.1"
   }
 }
