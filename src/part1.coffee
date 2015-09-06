@@ -14,10 +14,6 @@ curriedAdder = _.curry(adder)
 addTwo = curriedAdder(2)
 console.log addTwo(10)
 
-cMultiplier = _.curry(multiplier)
-times3 = cMultiplier(3)
+mapTimes3 = R.map(R.multiply(3))
 
-triple = (a) ->
-  _.map(a, times3)
-
-assertEq(triple([1,2,3]), [3,6,9])
+assertEq(mapTimes3([1,2,3]), [3,6,9])
