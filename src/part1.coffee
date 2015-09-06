@@ -13,3 +13,11 @@ multiplier = (a, b) ->
 curriedAdder = _.curry(adder)
 addTwo = curriedAdder(2)
 console.log addTwo(10)
+
+cMultiplier = _.curry(multiplier)
+times3 = cMultiplier(3)
+
+triple = (a) ->
+  _.map(a, times3)
+
+assertEq(triple([1,2,3]), [3,6,9])
