@@ -1,0 +1,1 @@
+console.log(_([4,2, 1].map((a) -> a * 2)).value())
