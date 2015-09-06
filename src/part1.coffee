@@ -3,4 +3,13 @@ a = _.pluck([1,2,3], '1')
 console.log a
 
 assertEq(1,1)
-assertEq(1,2)
+
+adder = (a, b) ->
+  a + b
+
+multiplier = (a, b) ->
+  a * b
+
+curriedAdder = _.curry(adder)
+addTwo = curriedAdder(2)
+console.log addTwo(10)
