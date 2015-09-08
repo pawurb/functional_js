@@ -28,3 +28,24 @@ data = [
 
 bExtractor = _.compose(get('b'), get('a'))
 console.log R.map(bExtractor, data)
+
+fork = _.curry((lastly, f, g, x) ->
+  lastly(f(x), g(x))
+)
+
+avg = fork(R.divide, R.sum, _.size)
+
+console.log avg([2,2,3,4,5])
+
+err = { message: 'it borke' }
+#A
+on_error = (err) ->
+  console.log err.message
+
+on_error(err)
+console.log(get('message', err))
+
+on_error_f = _.compose(console.log.bind(console), get('message'))
+on_error_f(err)
+
+
