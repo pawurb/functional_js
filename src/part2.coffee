@@ -45,7 +45,6 @@ on_error = (err) ->
 on_error(err)
 console.log(get('message', err))
 
-on_error_f = _.compose(console.log.bind(console), get('message'))
-on_error_f(err)
+_.compose(console.log.bind(console), get('message'))(err)
 
 
