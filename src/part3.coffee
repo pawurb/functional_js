@@ -5,3 +5,11 @@ replacer = _.curry((from, to, text) ->
 replaceAwithB = replacer(/a/g, 'b')
 
 console.log replaceAwithB('lalala')
+
+taker = _.curry((amount, arr) ->
+  _.take(arr, amount)
+)
+
+takeTwo = taker(2)
+
+console.log takeTwo([1,2,3,4,5])
