@@ -21,10 +21,18 @@ _Container = (val) ->
   @val = val
   return
 
+_Maybe = (val) ->
+  @val = val
+  return
+
 Container = (val) -> new _Container(val)
+Maybe = (val) -> new _Maybe(val)
 
 _Container.prototype.map = (f) ->
   Container(f(@val))
+
+_Maybe.prototype.map = (f) ->
+  if @val then Maybe(f(@val)) else Maybe(null)
 
 console.log Container('dupaaaa').map(replaceAwithB)
 console.log Container([1,2,3,4]).map(reverse)
@@ -34,3 +42,12 @@ map = _.curry((f, obj) ->
 )
 
 console.log map(replaceAwithB, Container('dupaaaa'))
+
+
+map(replaceAwithB, Maybe(null))
+try
+  map(replaceAwithB, Container(null))
+catch e
+  console.log e
+
+
