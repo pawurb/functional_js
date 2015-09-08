@@ -10,7 +10,7 @@ inserter = _.curry((a, b) ->
 
 screamer = inserter('!!')
 
-upcaverser = _.compose(upcaser, reverser)
+upcaverser = R.compose(upcaser, reverser)
 
 loudupcaverser = _.compose(screamer, upcaser, reverser)
 
