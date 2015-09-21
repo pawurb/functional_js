@@ -32,7 +32,10 @@ _Container.prototype.map = (f) ->
   Container(f(@val))
 
 _Maybe.prototype.map = (f) ->
-  if @val then Maybe(f(@val)) else Maybe(null)
+  if @val != null and @val != undefined
+    Maybe(f(@val))
+  else
+    Maybe(null)
 
 console.log Container('dupaaaa').map(replaceAwithB)
 console.log Container([1,2,3,4]).map(reverse)
@@ -43,8 +46,9 @@ map = _.curry((f, obj) ->
 
 console.log map(replaceAwithB, Container('dupaaaa'))
 
-
 map(replaceAwithB, Maybe(null))
+console.log map(parseInt, Maybe("2"))
+console.log map(parseInt, Maybe(null))
 try
   map(replaceAwithB, Container(null))
 catch e
